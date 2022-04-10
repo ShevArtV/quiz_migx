@@ -1,0 +1,19 @@
+<h3>Вопросы и ответы</h3>
+{foreach $quizItems as $item index=$i}
+<div ##!$answer{$i} ? 'style="display:none;"' : ''}>
+    <p>{$item.question}</p>
+    <p>
+        ##if is_array($answer{$i})}
+        <em>##$answer{$i} | join: ', '}</em><br/>
+        ##else}
+        <em>##$answer{$i}}</em><br/>
+        ##/if}
+    </p>
+</div>
+
+{/foreach}
+<hr>
+<h3>Данные пользователя</h3>
+{foreach $quizFields as $field index=$i}
+<p><strong>{$field.label}</strong>: ##$field{$i}}</p>
+{/foreach}

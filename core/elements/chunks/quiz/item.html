@@ -1,0 +1,51 @@
+{foreach $quizItems as $key => $q}
+{if $key != 0}
+{set $class = 'visually-hidden'}
+{/if}
+{set $answers = $q['answer'] | fromJSON}
+<div class="jsQuizItem {$class}" id="item-{$q['id']?:$q['MIGX_id']}">
+    <h4 class="mb-2">{$q['question']}</h4>
+    <p class="mb-3">{$q['hint']}</p>
+
+    {switch $q['type']}
+    {case 'radio'}
+    {foreach $answers as $v index=$i}
+    <label class="mb-2 d-block">
+        <input type="radio"
+               name="answer{$key}" {$i == 0 ? 'checked' : ''}
+               class="form-check-input jsInput {$i == 0 ? 'jsTrack' : ''} {$q['autochange'] ? 'jsAutoChange' : ''}"
+               data-next="item-{$v['next_id']?:($key + 2)}"
+               value="{$v['value']}" {$q['required'] ? 'data-required="1"':''}>
+        {$v['text']}
+    </label>
+    {/foreach}
+    {case 'text'}
+    <label class="form-label w-100">
+        <input type="text" class="form-control jsInput jsTrack {$q['autochange'] ? 'jsAutoChange' : ''}"
+               name="answer{$key}"
+               data-next="item-{$answers[0]['next_id']?:($key + 2)}"
+               placeholder="{$q['placeholder']}"
+               autocomplete="off" {$q['required'] ? 'data-required="1"':''}>
+    </label>
+    {case 'textarea'}
+    <label class="form-label w-100">
+    <textarea class="form-control jsInput jsTrack {$q['autochange'] ? 'jsAutoChange' : ''}"
+              name="answer{$key}" rows="4"
+              data-next="item-{$answers[0]['next_id']?:($key + 2)}"
+              placeholder="{$q['placeholder']}"
+              autocomplete="off" {$q['required'] ? 'data-required="1"':''}>
+    </textarea>
+    </label>
+    {case 'checkbox'}
+    {foreach $answers as $v index=$i}
+    <label class="mb-2 d-block">
+        <input type="checkbox" name="answer{$key}[]"
+               class="form-check-input jsInput {$i == 0 ? 'jsTrack' : ''} {$q['autochange'] ? 'jsAutoChange' : ''}"
+               data-next="item-{$v['next_id']?:($key + 2)}"
+               value="{$v['value']}" {$q['required'] ? 'data-required="1"':''}>
+        {$v['text']}
+    </label>
+    {/foreach}
+    {/switch}
+</div>
+{/foreach}
