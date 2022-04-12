@@ -71,7 +71,15 @@ export default class Quiz {
         if ($this.config.addForItems.length) {
             $this.showAdd($this.config.items[0].id);
         }
-
+        document.addEventListener('af_complete', function (e) {
+            let status = e.detail.status, // статус ответа
+                response = e.detail.response, // сам ответ
+                form = e.detail.form, // элемент формы
+                xhr = e.detail.xhr; // объект запроса
+            if (status && form.classList.contains($this.config.formClass)) {
+                $this.successSubmit();
+            }
+        });
         if (window.jQuery) {
             $(document).on('af_complete', function (event, response) {
                 if (response.success && $(response.form).hasClass($this.config.formClass)) {
