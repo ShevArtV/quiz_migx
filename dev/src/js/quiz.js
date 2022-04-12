@@ -182,6 +182,7 @@ export default class Quiz {
             targetEl = document.getElementById(target[target.length - 1]),
             quizEvent = new CustomEvent('question_change', {
                 detail: {
+                    form: this.form,
                     curIndex: curIndex,
                     direction: direction,
                     btnBack: btnBack,
