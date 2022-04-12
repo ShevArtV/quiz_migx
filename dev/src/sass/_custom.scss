@@ -1,0 +1,14 @@
+body {
+  font-family: 'Mont', sans-serif;
+  font-size: 18px;
+  color: #000;
+  font-weight: 400;
+}
+
+a, .btn, i, img {
+  transition: all $fast;
+
+  i {
+    transition: all 0s;
+  }
+}

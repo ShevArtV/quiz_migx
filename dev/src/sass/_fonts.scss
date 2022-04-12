@@ -1,0 +1,13 @@
+//@import "mixins";
+
+@each $name, $weight in $fontpaths {
+  @include font-face("Mont", "../fonts/Mont-#{$name}", $weight, "normal", false);
+}
+
+.fw{
+  @each $name, $value in $fontweights {
+    &-#{$name} {
+      font-weight: $value;
+    }
+  }
+}

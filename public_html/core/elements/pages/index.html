@@ -1,0 +1,6 @@
+{extends 'file:pages/wrapper.html'}
+{block 'content'}
+<div class="container py-5 position-relative">
+    {$_modx->runSnippet('@FILE: snippets/getQuiz.php', ['rid' => $_modx->resource.id, 'quizID' => 1])}
+</div>
+{/block}

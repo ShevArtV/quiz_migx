@@ -1,0 +1,11 @@
+.transition-fast{
+  transition: all $fast;
+}
+.shadow{
+  transition: all $fast;
+}
+
+.scale-onhover:hover {
+  transform: scale(1.03);
+}
+

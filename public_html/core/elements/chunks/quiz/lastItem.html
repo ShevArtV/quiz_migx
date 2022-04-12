@@ -1,0 +1,22 @@
+<div class="jsQuizItem visually-hidden" id="item-{$itemsCount+1}">
+    {if $title_last}
+    <h4 class="mb-2">{$title_last}</h4>
+    {/if}
+    {if $subtitle_last}
+    <p class="mb-3">{$subtitle_last}</p>
+    {/if}
+    {foreach $quizFields as $field index=$i}
+    <label class="form-label w-100 mb-3">
+    {if $field['type'] != 'textarea'}
+        <input type="{$field['type']}" class="form-control" name="field{$i}" placeholder="{$field['placeholder']}" value="" autocomplete="off">
+    {else}
+        <textarea class="form-control"
+                  name="field{$i}" rows="4"
+                  placeholder="{$field['placeholder']}"
+                  autocomplete="off">
+        </textarea>
+    {/if}
+    <p class="error_field{$i}"></p>
+    </label>
+    {/foreach}
+</div>

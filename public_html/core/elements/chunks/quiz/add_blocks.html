@@ -1,0 +1,10 @@
+{foreach $add_blocks as $item}
+<div class="jsAddItem d-none" data-for="item-{$item.item_id}">
+    {if $item.img}
+    <div>
+        <img src="{$item.img}" alt="{$item.content}" class="img-fluid">
+    </div>
+    {$item.content}
+    {/if}
+</div>
+{/foreach}

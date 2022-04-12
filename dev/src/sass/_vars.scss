@@ -1,0 +1,48 @@
+// Variables
+
+// default sizes
+// 10/18=0.5556
+$px-5: 0.2778em;
+$px-10: 0.5556em;
+$px-15: 0.8333em;
+$px-25: 1.3889em;
+
+$fontpaths: (
+  'Thin': 100,
+  'ExtraLight' : 200,
+  'Light' : 300,
+  'Regular' : 400,
+  'SemiBold' : 600,
+  'Bold' : 700,
+  'Black' : 800,
+  'Heavy' : 900,
+);
+
+$fontweights: (
+  'thin': 100,
+  'exttra-light': 200,
+  'light': 300,
+  'regular': 400,
+  'semi-bold': 600,
+  'bold': 700,
+  'black': 800,
+  'heavy': 900,
+);
+
+
+$gaps: (
+  '15': $px-15,
+  '25': $px-25,
+  '35': $px-10 * 3.5,
+  '45': $px-10 * 4.5,
+  '55': $px-10 * 5.5,
+  '65': $px-10 * 6.5,
+  '75': $px-10 * 7.5,
+  '85': $px-10 * 8.5,
+  '95': $px-10 * 9.5
+);
+
+// transitions speed
+$fast: .3s;
+$slow: .6s;
+$slowest: .9s;
